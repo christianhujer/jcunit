@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/offcard/Offcard.iml" filepath="$PROJECT_DIR$/offcard/Offcard.iml" />
+      <module fileurl="file://$PROJECT_DIR$/oncard/Oncard.iml" filepath="$PROJECT_DIR$/oncard/Oncard.iml" />
+    </modules>
+  </component>
+</project>
+
