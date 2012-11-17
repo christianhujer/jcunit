@@ -5,7 +5,7 @@ import java.io.LineNumberReader;
 import java.io.Reader;
 
 /**
- * LineNumberReader that can replace macros.
+ * LineNumberReader that can replace the __LINE__ macro.
  *
  * @author <a href="mailto:cher@riedquat.de">Christian Hujer</a>
  * @version 1.0
@@ -13,6 +13,9 @@ import java.io.Reader;
  */
 @SuppressWarnings("UnusedDeclaration")
 public class JCReader {
+
+    // Currently intentionally does not extend Reader.
+    // read() etc. are not implemented properly.
 
     /**
      * The LineNumberReader to read from.
