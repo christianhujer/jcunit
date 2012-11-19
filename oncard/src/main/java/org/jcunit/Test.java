@@ -5,7 +5,9 @@ import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
-/** Annotation for test cases.
+/**
+ * Annotation for test cases.
+ *
  * @author <a href="mailto:cher@riedquat.de">Christian Hujer</a>
  * @version 1.0
  * @since 1.0
