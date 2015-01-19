@@ -3,6 +3,7 @@ package de.riedquat;
 import java.io.IOException;
 import java.io.LineNumberReader;
 import java.io.Reader;
+import org.jetbrains.annotations.Nullable;
 
 /**
  * LineNumberReader that can replace the __LINE__ macro.
@@ -12,7 +13,7 @@ import java.io.Reader;
  * @since 1.0
  */
 @SuppressWarnings("UnusedDeclaration")
-public class JCReader {
+public class JCReader extends ReadLine.ReadLineImpl {
 
     // Currently intentionally does not extend Reader.
     // read() etc. are not implemented properly.
@@ -32,15 +33,14 @@ public class JCReader {
         reader = in instanceof LineNumberReader ? (LineNumberReader) in : new LineNumberReader(in);
     }
 
-    /**
-     * Reads a line.
-     *
-     * @return Line read.
-     * @throws IOException
-     *         In case of I/O problems.
-     */
+    @Override
     public String readLine() throws IOException {
         return replaceMacros(reader.readLine());
+    }
+
+    @Override
+    public int getLineNumber() {
+        return reader.getLineNumber();
     }
 
     /**
@@ -50,7 +50,7 @@ public class JCReader {
      *         Text for which to replace the macros.
      * @return The line with all macros replaced.
      */
-    private String replaceMacros(final String text) {
-        return text.replaceAll("__LINE__", Integer.toString(reader.getLineNumber()));
+    private String replaceMacros(@Nullable final String text) {
+        return text != null ? text.replaceAll("__LINE__", Integer.toString(getLineNumber())) : null;
     }
 }
